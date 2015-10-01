@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Meryl Hag Unicorn Princess</title>
+</head>
+<body>
+	<h1>TEST CONTENT</h1>
+	<div id="overlay"></div>
+	<div id="flashcontent"></div>
+	<script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<script type="text/javascript">
+		var muzak = false;
+		document.getElementById('overlay').onclick = function() {
+			if ( !muzak ) {
+				swfobject.embedSWF("http://www.youtube.com/v/39YUXIKrOFk&hl=en_US&fs=1&autoplay=1&start=2&", "flashcontent", "0", "0", "8.0.0", "swf/expressInstall.swf");
+
+				muzak = true;
+			}
+
+			cornify_add();
+		}
+
+	</script>
+
+</body>
+</html>

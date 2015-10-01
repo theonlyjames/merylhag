@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Meryl Hag Unicorn Princess</title>
+	<style type="text/css">
+	html, body {
+	    height: 100%;
+	    margin: 0;
+	    padding: 0;
+	}
+
+	#mainframe {
+	    width: 100%;
+	    height: 100%;
+	    margin: 0;
+	    padding: 0;
+	    border: 0;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+
+	#overlay {
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+
+	#flashcontent {
+	    position: absolute;
+	    top: -1000px;
+	    left: 0;
+	}
+
+	</style>
+</head>
+<body>
+	<div id="mainframe" onclick="cornify_add">TEST CONTENT</div>
+	<div id="overlay"></div>
+	<div id="flashcontent"></div>
+	<script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+	<script type="text/javascript" src="js/swfobject.js"></script>
+	<script type="text/javascript">
+		var muzak = false;
+		document.getElementById('overlay').onclick = function() {
+			if ( !muzak ) {
+				swfobject.embedSWF("http://www.youtube.com/v/39YUXIKrOFk&hl=en_US&fs=1&autoplay=1&start=2&", "flashcontent", "0", "0", "8.0.0", "swf/expressInstall.swf");
+
+				muzak = true;
+			}
+
+			cornify_add();
+		}
+
+		var prevPos = 0;
+		function drawUnicorn (position) {
+			var delta = position - prevPos || 0;
+			var abs = delta > 0 ? delta : -delta;
+			console.log('abs: ' + abs + ' delta ' + delta +  ' prevPos ' + prevPos);
+			if (abs > 20) {
+				cornify_add();
+			}
+			prevPos = position;
+		}
+
+		document.addEventListener('mousemove', function (event) {
+			drawUnicorn(event.offsetX);
+			//console.log(event);
+		});
+
+	</script>
+
+</body>
+</html>
